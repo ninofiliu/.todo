@@ -1,0 +1,23 @@
+{
+  "name": "todo-parser",
+  "version": "0.0.0",
+  "description": "Parse, convert, and write Todo files",
+  "keywords": ["todo", "to-do", "parser", "productivity", "open-source"],
+  "homepage": "https://github.com/ninofiliu/.todo/",
+  "license": "ISC",
+  "author": "Nino Filiu (https://ninofiliu.com)",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/ninofiliu/.todo/",
+    "directory": "todo-parser"
+  },
+  "main": "./src/index.js",
+  "files": ["src/**/*"],
+  "scripts": {
+    "test": "mocha"
+  },
+  "devDependencies": {
+    "@types/mocha": "^5.2.7",
+    "mocha": "^6.1.4"
+  }
+}
