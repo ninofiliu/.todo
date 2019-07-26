@@ -6,7 +6,7 @@ const parseMainLine = line => {
     let done = null, title = null, tags = [];
 
     // remove list character
-    copy = copy.trim().substring(copy.match(/^[-+*]\s/)[0].length);
+    copy = copy.substring(copy.match(/^\s*[-+*]\s*/)[0].length);
 
     // get 'done' value
     if (copy.startsWith('[ ]')) {
