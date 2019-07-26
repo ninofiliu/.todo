@@ -3,21 +3,25 @@ const fs = require('fs');
 
 const tp = require('..');
 const getBlocks = require('../src/parse/get-blocks');
-const isMainLine = require('../src/parse/is-main-line');
+const parseMainLine = require('../src/parse/parse-main-line');
 
 const basicText = fs.readFileSync(`${__dirname}/data/basic.md`, 'utf8');
 const basicExpected = require('./data/basic.expected');
+const mainText = fs.readFileSync(`${__dirname}/data/main.md`, 'utf8');
+const mainExpected = require('./data/main.expected');
 
 describe('parse', () => {
-    it('can detect main lines', () => {
-        const lines = basicText.trim().split(/\r?\n/);
-        assert.deepEqual(lines, basicExpected.lines);
-        assert.deepEqual(lines.map(isMainLine), basicExpected.mainLines);
-    })
-    it('can get blocks', () => {
+    it('can parse blocks', () => {
         assert.deepStrictEqual(
             getBlocks(basicText),
             basicExpected.blocks,
+        );
+    });
+    it('can parse main lines', () => {
+        const lines = mainText.trim().split(/\r?\n/);
+        assert.deepStrictEqual(
+            lines.map(parseMainLine),
+            mainExpected,
         );
     });
 });

@@ -22,7 +22,7 @@
     "src/**/*"
   ],
   "scripts": {
-    "test": "mocha"
+    "test": "mocha --bail"
   },
   "devDependencies": {
     "@types/mocha": "^5.2.7",

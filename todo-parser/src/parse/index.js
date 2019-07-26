@@ -1,9 +1,9 @@
 const getBlocks = require('./get-blocks');
-const getTasks = require('./get-tasks');
+const getTask = require('./get-task');
 
 const parse = text => {
     const blocks = getBlocks(text);
-    const tasks = getTasks(blocks);
+    const tasks = blocks.map(getTask);
     return tasks;
 }
 
