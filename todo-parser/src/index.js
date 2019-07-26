@@ -1,3 +1,5 @@
+const parse = require('./parse');
+
 module.exports = {
-    thisIsTheBeginning: 'of a great adventure',
+    parse,
 }

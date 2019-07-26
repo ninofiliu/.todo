@@ -18,6 +18,8 @@ const tasksText = fs.readFileSync(`${__dirname}/data/tasks.md`, 'utf8');
 const tasksExpected = require('./data/tasks.expected');
 const inheritanceText = fs.readFileSync(`${__dirname}/data/inheritance.md`, 'utf8');
 const inheritanceExpected = require('./data/inheritance.expected');
+const fullText = fs.readFileSync(`${__dirname}/data/full.md`, 'utf8');
+const fullExpected = require('./data/full.expected');
 
 describe('parse', () => {
     it('can parse blocks', () => {
@@ -53,4 +55,8 @@ describe('parse', () => {
         const inheritance = getInheritance(blocks);
         assert.deepStrictEqual(inheritance, inheritanceExpected);
     });
+    it('can parse a file', () => {
+        const parsed = tp.parse(fullText);
+        assert.deepEqual(parsed, fullExpected);
+    })
 });
