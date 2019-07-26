@@ -6,6 +6,7 @@ const getBlocks = require('../src/parse/get-blocks');
 const parseMainLine = require('../src/parse/parse-main-line');
 const parseAttributeLine = require('../src/parse/parse-attribute-line');
 const getTask = require('../src/parse/get-task');
+const getInheritance = require('../src/parse/get-inheritance');
 
 const basicText = fs.readFileSync(`${__dirname}/data/basic.md`, 'utf8');
 const basicExpected = require('./data/basic.expected');
@@ -15,6 +16,8 @@ const attributeText = fs.readFileSync(`${__dirname}/data/attribute.md`, 'utf8');
 const attributeExpected = require('./data/attribute.expected');
 const tasksText = fs.readFileSync(`${__dirname}/data/tasks.md`, 'utf8');
 const tasksExpected = require('./data/tasks.expected');
+const inheritanceText = fs.readFileSync(`${__dirname}/data/inheritance.md`, 'utf8');
+const inheritanceExpected = require('./data/inheritance.expected');
 
 describe('parse', () => {
     it('can parse blocks', () => {
@@ -44,5 +47,10 @@ describe('parse', () => {
             tasks,
             tasksExpected,
         );
+    });
+    it('can compute inheritance', () => {
+        const blocks = getBlocks(inheritanceText);
+        const inheritance = getInheritance(blocks);
+        assert.deepStrictEqual(inheritance, inheritanceExpected);
     });
 });
