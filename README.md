@@ -33,8 +33,7 @@ Writing and reading a Todo file should be pretty easy with any editor. Simply co
 
 There is an ongoing effort to build the software-level tooling that would allow Todo files to be easily integrated with existing or future project management tools, namely:
 
-- [ ] `in-discussion` todo-json converter
-- [ ] `in-discussion` todo-csv converter
+- [ ] `in-progress` [parser/converter](./dot-todo-parser)
 - [ ] `in-discussion` GUI
 - [ ] `in-discussion` linter
 
